@@ -50,10 +50,6 @@ class Game(object):
 		print('Hello %s' %(player_1.name))
 
 		player_1.set_symbol()
-		if player_1.symbol == 'X':
-			player_2.symbol = 'O'
-		else:
-			player_2.symbol = 'X'
 
 		player_2.name = input('Player 2 name: ')
 		print('Hello %s' %(player_2.name))
@@ -241,9 +237,11 @@ class Player(object):
 			if symbol == 'x':
 				print("You pick 'X', so player 2 will use 'O'")
 				self.symbol = 'X'
+				player_2.symbol = 'O'
 			else:
 				print("You pick 'O', so player 2 will use 'X'")
 				self.symbol = 'O'
+				player_2.symbol = 'X'
 			return self.symbol
 
 
