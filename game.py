@@ -47,7 +47,7 @@ class Game(object):
 		player_2 = Player(0,0)
 
 		player_1.name = input('Player 1 name: ')
-		print('Hello %s' %(player_1.show_name()))
+		print('Hello %s' %(player_1.name))
 
 		player_1.set_symbol()
 		if player_1.get_symbol() == 'X':
@@ -56,7 +56,7 @@ class Game(object):
 			player_2.set_symbol_fast('X')
 
 		player_2.name = input('Player 2 name: ')
-		print('Hello %s' %(player_2.show_name()))
+		print('Hello %s' %(player_2.name))
 
 		while winner == False:
 			current_game.get_move()
@@ -112,10 +112,10 @@ class Game(object):
 		global count
 
 		if count % 2 == 0:
-			current_player = player_1.show_name()
+			current_player = player_1.name
 			current_symbol = player_1.get_symbol()
 		else:
-			current_player = player_2.show_name()
+			current_player = player_2.name
 			current_symbol = player_2.get_symbol()
 
 	def board_gravity(self):
@@ -222,9 +222,9 @@ class Game(object):
 		global count
 
 		if count % 2 == 0:
-			print('\n%s won the game!' %(player_1.show_name()))
+			print('\n%s won the game!' %(player_1.name))
 		else:
-			print('\n%s won the game!' %(player_2.show_name()))
+			print('\n%s won the game!' %(player_2.name))
 
 
 class Player(object):
@@ -232,9 +232,6 @@ class Player(object):
 	def __init__(self, name, symbol):
 		Game.__init__(self)
 		self.symbol = symbol
-
-	def show_name(self):
-		return self.name
 
 	def set_symbol(self):
 		symbol = ''
