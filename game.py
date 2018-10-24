@@ -46,7 +46,7 @@ class Game(object):
 		player_1 = Player(0,0)
 		player_2 = Player(0,0)
 
-		player_1.set_name(input('Player 1 name: '))
+		player_1.name = input('Player 1 name: ')
 		print('Hello %s' %(player_1.show_name()))
 
 		player_1.set_symbol()
@@ -55,7 +55,7 @@ class Game(object):
 		else:
 			player_2.set_symbol_fast('X')
 
-		player_2.set_name(input('Player 2 name: '))
+		player_2.name = input('Player 2 name: ')
 		print('Hello %s' %(player_2.show_name()))
 
 		while winner == False:
@@ -232,10 +232,6 @@ class Player(object):
 	def __init__(self, name, symbol):
 		Game.__init__(self)
 		self.symbol = symbol
-
-	def set_name(self, name):
-		self.name = name
-		return self.name
 
 	def show_name(self):
 		return self.name
