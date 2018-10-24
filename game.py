@@ -231,7 +231,6 @@ class Player(object):
 
 	def __init__(self, name, symbol):
 		Game.__init__(self)
-		self.symbol = symbol
 
 	def set_symbol(self):
 		symbol = ''
