@@ -50,7 +50,7 @@ class Game(object):
 		print('Hello %s' %(player_1.name))
 
 		player_1.set_symbol()
-		if player_1.get_symbol() == 'X':
+		if player_1.symbol == 'X':
 			player_2.set_symbol_fast('O')
 		else:
 			player_2.set_symbol_fast('X')
@@ -113,10 +113,10 @@ class Game(object):
 
 		if count % 2 == 0:
 			current_player = player_1.name
-			current_symbol = player_1.get_symbol()
+			current_symbol = player_1.symbol
 		else:
 			current_player = player_2.name
-			current_symbol = player_2.get_symbol()
+			current_symbol = player_2.symbol
 
 	def board_gravity(self):
 		#
@@ -253,8 +253,6 @@ class Player(object):
 		self.symbol = symbol
 		return self.symbol
 
-	def get_symbol(self):
-		return self.symbol
 
 current_game = Game()
 current_game.game_start()
