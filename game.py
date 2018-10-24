@@ -233,8 +233,6 @@ class Player(object):
 		Game.__init__(self)
 
 	def set_symbol(self):
-		symbol = ''
-		self.symbol = symbol
 		symbol = input("Choose 'X' or 'O' as your symbol: ").lower()
 		while symbol != 'x' and symbol != 'o':
 			print("Pick a valid symbol")
