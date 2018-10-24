@@ -51,9 +51,9 @@ class Game(object):
 
 		player_1.set_symbol()
 		if player_1.symbol == 'X':
-			player_2.set_symbol_fast('O')
+			player_2.symbol = 'O'
 		else:
-			player_2.set_symbol_fast('X')
+			player_2.symbol = 'X'
 
 		player_2.name = input('Player 2 name: ')
 		print('Hello %s' %(player_2.name))
@@ -248,10 +248,6 @@ class Player(object):
 				print("You pick 'O', so player 2 will use 'X'")
 				self.symbol = 'O'
 			return self.symbol
-
-	def set_symbol_fast(self, symbol):
-		self.symbol = symbol
-		return self.symbol
 
 
 current_game = Game()
