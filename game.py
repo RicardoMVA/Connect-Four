@@ -56,10 +56,10 @@ class Game(object):
 
 		while winner == False:
 			current_game.get_move()
-			current_game.show_board()
 			continue
 		else:
-			game_over = input('Game over!\nWant to play again? ').lower()
+			print('%s won the game!' %(current_player))
+			game_over = input('\nGame over!\nWant to play again? ').lower()
 			if game_over == 'yes' or game_over == 'y':
 				current_game.game_start()
 			else:
@@ -93,6 +93,7 @@ class Game(object):
 					else:
 						current_game.board_gravity()
 						self.board[current_line][play] = current_symbol
+						current_game.show_board()
 						current_game.check_winner()
 						count += 1
 						break
@@ -162,7 +163,6 @@ class Game(object):
 				and self.board[check_v][check_h] == self.board[check_v][check_h-1]
 				and self.board[check_v][check_h] == self.board[check_v][check_h-2]
 				and self.board[check_v][check_h] == self.board[check_v][check_h-3]):
-					current_game.print_winner()
 					print('Horizontal win')
 					winner = True
 					break
@@ -173,7 +173,6 @@ class Game(object):
 				and self.board[check_v][check_h] == self.board[check_v+1][check_h]
 				and self.board[check_v][check_h] == self.board[check_v+2][check_h]
 				and self.board[check_v][check_h] == self.board[check_v+3][check_h]):
-					current_game.print_winner()
 					print('Vertical win')
 					winner = True
 					break
@@ -185,7 +184,6 @@ class Game(object):
 				and self.board[check_v][check_h] == self.board[check_v-1][check_h+1]
 				and self.board[check_v][check_h] == self.board[check_v-2][check_h+2]
 				and self.board[check_v][check_h] == self.board[check_v-3][check_h+3]):
-					current_game.print_winner()
 					print('Diagonal right win')
 					winner = True
 					break
@@ -197,7 +195,6 @@ class Game(object):
 				and self.board[check_v][check_h] == self.board[check_v-1][check_h-1]
 				and self.board[check_v][check_h] == self.board[check_v-2][check_h-2]
 				and self.board[check_v][check_h] == self.board[check_v-3][check_h-3]):
-					current_game.print_winner()
 					print('Diagonal left win')
 					winner = True
 					break
@@ -210,17 +207,6 @@ class Game(object):
 				check_v -= 1
 				check_h = 6
 				continue
-
-	def print_winner(self):
-		#
-		# Prints the winner based on current player
-		#
-		global count
-
-		if count % 2 == 0:
-			print('\n%s won the game!' %(player_1.name))
-		else:
-			print('\n%s won the game!' %(player_2.name))
 
 
 class Player(object):
