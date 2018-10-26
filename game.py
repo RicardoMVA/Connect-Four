@@ -32,7 +32,7 @@ class Game(object):
 		#
 		# Initialize the game, and if done allows user to replay
 		#
-		global player_1, player_2, current_game, count, winner
+		global player_1, player_2, current_game, count, winner, game_on
 		winner = False
 		count = 0
 
@@ -57,8 +57,9 @@ class Game(object):
 			print('%s won the game!' %(current_player))
 			game_over = input('\nGame over!\nWant to play again? ').lower()
 			if game_over == 'yes' or game_over == 'y':
-				current_game.game_start()
+				game_on = True
 			else:
+				game_on = False
 				print('Okay, thanks for playing!')
 
 	def get_move(self):
@@ -220,4 +221,8 @@ class Player(object):
 
 
 current_game = Game()
-current_game.game_start()
+
+game_on = True
+
+while game_on == True:
+	current_game.game_start()
