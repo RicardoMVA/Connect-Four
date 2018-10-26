@@ -32,11 +32,7 @@ class Game(object):
 		#
 		# Initialize the game, and if done allows user to replay
 		#
-		global player_1
-		global player_2
-		global current_game
-		global count
-		global winner
+		global player_1, player_2, current_game, count, winner
 		winner = False
 		count = 0
 
@@ -69,11 +65,7 @@ class Game(object):
 		#
 		# Takes user move, check if it is valid, and puts it on the board
 		#
-		global play
-		global count
-		global current_line
-		global current_player
-		global current_symbol
+		global play, count, current_line, current_player, current_symbol
 		play = 0
 		
 		current_game.current_player()
@@ -104,9 +96,7 @@ class Game(object):
 		#
 		# Determines which player is making a move
 		#
-		global current_player
-		global current_symbol
-		global count
+		global current_player, current_symbol, count
 
 		if count % 2 == 0:
 			current_player = player_1.name
@@ -119,8 +109,7 @@ class Game(object):
 		#
 		# Makes symbols stack over each other
 		#
-		global play
-		global current_line
+		global play, current_line
 		current_line = 5
 
 		while current_line > 0:
@@ -135,8 +124,7 @@ class Game(object):
 		#
 		# Checks if the column chosen by the player is full
 		#
-		global play
-		global current_line
+		global play, current_line
 
 		if (current_line == 0 
 			and self.board[current_line][play] != ' '):
